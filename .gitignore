@@ -1,3 +1,4 @@
+bin/**
 # ytterligere ignores
 *.pdf
 /experiments/*.json
