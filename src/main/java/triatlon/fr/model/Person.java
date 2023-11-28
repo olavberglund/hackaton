@@ -1,4 +1,4 @@
-package triatlon.fr.person;
+package triatlon.fr.model;
 
 import java.time.LocalDate;
 
@@ -82,6 +82,34 @@ public class Person {
 
     public int getAntallBarn() {
         return antallBarn;
+    }
+
+    public void setIdentifikator(String identifikator) {
+        this.identifikator = identifikator;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setFodselsdato(LocalDate fodselsdato) {
+        this.fodselsdato = fodselsdato;
+    }
+
+    public void setAntallBarn(int antallBarn) {
+        this.antallBarn = antallBarn;
+    }
+
+    public void setEktefelle(Person ektefelle) {
+        this.ektefelle = ektefelle;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Person getEktefelle() {

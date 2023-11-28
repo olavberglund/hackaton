@@ -1,4 +1,4 @@
-package triatlon.fr;
+package triatlon.fr.model;
 
 import java.time.LocalDate;
 
