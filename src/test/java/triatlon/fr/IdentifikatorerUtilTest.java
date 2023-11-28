@@ -1,4 +1,5 @@
-package triatlon.fr.test;
+package triatlon.fr;
+
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
@@ -11,7 +12,7 @@ class IdentifikatorerUtilTest {
     @Test
     void genererFinskIdentifikatorSkalReturnereKorrektFormat() {
         String identifikator = IdentifikatorerUtil.genererIdentifikator(LocalDate.of(1990, 5, 15));
-        String forventetResultat= "150590";
+        String forventetResultat = "150590";
         assertTrue(identifikator.matches("\\d{6}[A+-]\\d{3}[A-FHJ-NP-Z]"));
         assertEquals(forventetResultat, identifikator.substring(0, 6));
         assertEquals(11, identifikator.length());
