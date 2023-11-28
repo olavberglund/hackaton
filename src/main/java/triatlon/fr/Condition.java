@@ -8,4 +8,8 @@ public enum Condition {
     private Condition(String condition) {
         this.condition = condition;
     }
+
+    public Boolean match(String condition) {
+        return this.condition.equals(condition);
+    }
 }
