@@ -6,36 +6,31 @@ import java.util.Objects;
 public class Rule {
 
     private final int id;
-    private final String condition;
-    private final String action;
+    private final Condition condition;
+    private final Action action;
     private final String[] parameters;
 
-
-
-    // public Action evaluateIt(condition, parameters) {
-    //     if (condition.equals(this.condition) && Arrays.equals(parameters, this.parameters)) {
-    //         return new Action(this.action);
-    //     }
-    //     return null;
-    // }
-    public Rule(int id, String condition, Action action, String... parameters) {
+    public Rule(int id, Condition condition, Action action, String... parameters) {
         this.id = id;
         this.condition = condition;
         this.action = action;
         this.parameters = parameters;
-
     }
 
     public int getId() {
         return id;
     }
 
-    public String getCondition() {
+    public Condition getCondition() {
         return condition;
     }
 
-    public String getAction() {
-        return action;
+    public Action getAction(String conditionDescription) {
+        if (this.condition.match(conditionDescription)) {
+            return this.action;
+        }else{
+            return Action.NO_ACTION;
+        }
     }
 
     public String[] getParameters() {
