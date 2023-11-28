@@ -10,7 +10,29 @@ public class Rule {
     private final String action;
     private final String[] parameters;
 
-    public Rule(int id, String condition, String action, String... parameters) {
+    public enum Action {
+        CONTINUE("Fortsett registrering"),
+        CANCEL("Avbryt registrering"),
+        MANUAL("Manuell vurdering");
+
+        private final String action;
+
+        Action(String action) {
+            this.action = action;
+        }
+
+        public String getAction() {
+            return action;
+        }
+    }
+
+    // public Action evaluateIt(condition, parameters) {
+    //     if (condition.equals(this.condition) && Arrays.equals(parameters, this.parameters)) {
+    //         return new Action(this.action);
+    //     }
+    //     return null;
+    // }
+    public Rule(int id, String condition, Action action, String... parameters) {
         this.id = id;
         this.condition = condition;
         this.action = action;

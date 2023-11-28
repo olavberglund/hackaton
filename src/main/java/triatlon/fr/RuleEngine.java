@@ -19,7 +19,8 @@ public class RuleEngine {
 
         for (Rule rule : rules) {
             if (rule.getCondition().equals(condition) && Arrays.equals(rule.getParameters(), parameters)) {
-                this.matchingRules.add(rule);
+                return rule.getAction()
+                // this.matchingRules.add(rule);
             }
         }
 
