@@ -12,8 +12,6 @@ public class RuleEngine {
     }
 
     public Action evaluate(String conditionDescription, String... parameters) {
-        //FIXME: Implement a logic to handel parameters
-
         for (Rule rule : rules) {
             Action action = rule.getAction(conditionDescription);
 

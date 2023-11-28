@@ -28,7 +28,7 @@ public class Rule {
     public Action getAction(String conditionDescription) {
         if (this.condition.match(conditionDescription)) {
             return this.action;
-        }else{
+        } else {
             return Action.NO_ACTION;
         }
     }
@@ -39,15 +39,17 @@ public class Rule {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
+        if (this == o) {
             return true;
-        if (o == null || getClass() != o.getClass())
+        }
+        if (o == null || getClass() != o.getClass()) {
             return false;
+        }
         Rule rule = (Rule) o;
         return id == rule.id &&
-                condition.equals(rule.condition) &&
-                Arrays.equals(parameters, rule.parameters) &&
-                action.equals(rule.action);
+            condition.equals(rule.condition) &&
+            Arrays.equals(parameters, rule.parameters) &&
+            action.equals(rule.action);
     }
 
     @Override
@@ -58,9 +60,9 @@ public class Rule {
     @Override
     public String toString() {
         return "Rule{" +
-                "id=" + id +
-                ", condition='" + condition + '\'' +
-                ", action='" + action + '\'' +
-                '}';
+            "id=" + id +
+            ", condition='" + condition + '\'' +
+            ", action='" + action + '\'' +
+            '}';
     }
 }
