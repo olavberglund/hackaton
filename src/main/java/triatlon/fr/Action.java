@@ -1,9 +1,6 @@
 package triatlon.fr;
 
 public enum Action {
-    /*
-     * Eksempler
-     */
     CONTINUE("Fortsett registrering"),
     CANCEL("Avbryt registrering"),
     MANUAL("Manuell vurdering"),
@@ -11,7 +8,7 @@ public enum Action {
 
     private final String action;
 
-    private Action(String action) {
+    Action(String action) {
         this.action = action;
     }
 
