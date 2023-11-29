@@ -20,7 +20,7 @@ public class Meldinger {
                 .build();
     }
 
-    public static MeldingOmUtflytting genererMeldingMedarn(Person personBarn) {
+    public static MeldingOmUtflytting genererMeldingMedBarn(Person personBarn) {
         return new MeldingOmUtflytting.Builder()
                 .medIdentifikator(personBarn.getIdentifikator())
                 .medTilflytningsland("USA")
@@ -29,6 +29,34 @@ public class Meldinger {
                 .medDokumentasjonForBoligIUtlandet(true)
                 .medEktefelleINorge(false)
                 .medBarnINorge(true)
+                .medOppholdINorge(false)
+                .medArbeidsforholdINorge(false)
+                .build();
+    }
+
+    public static MeldingOmUtflytting genererMeldingMedEktefelle(Person personHarEktefelle) {
+        return new MeldingOmUtflytting.Builder()
+                .medIdentifikator(personHarEktefelle.getIdentifikator())
+                .medTilflytningsland("USA")
+                .medTilflytningsdato(LocalDate.now().minusDays(5))
+                .medBoligIUtlandet(true)
+                .medDokumentasjonForBoligIUtlandet(true)
+                .medEktefelleINorge(true)
+                .medBarnINorge(false)
+                .medOppholdINorge(false)
+                .medArbeidsforholdINorge(false)
+                .build();
+    }
+
+    public static MeldingOmUtflytting genererMeldingAlleredeUtflyttet(Person personUtenforNorge) {
+        return new MeldingOmUtflytting.Builder()
+                .medIdentifikator(personUtenforNorge.getIdentifikator())
+                .medTilflytningsland("USA")
+                .medTilflytningsdato(LocalDate.now().minusDays(5))
+                .medBoligIUtlandet(true)
+                .medDokumentasjonForBoligIUtlandet(true)
+                .medEktefelleINorge(false)
+                .medBarnINorge(false)
                 .medOppholdINorge(false)
                 .medArbeidsforholdINorge(false)
                 .build();

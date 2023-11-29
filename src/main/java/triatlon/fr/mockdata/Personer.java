@@ -18,7 +18,7 @@ public class Personer {
                 .bygg();
     }
 
-    public static Person getPersonMedarn() {
+    public static Person getPersonMeBarn() {
         LocalDate foedselsdato = DatoUtil.genererFodselsdatoForVoksen();
         return new Person.Builder()
                 .medFodselsdato(foedselsdato)
