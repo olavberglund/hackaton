@@ -1,5 +1,7 @@
 package triatlon.fr;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,9 +27,8 @@ class UtflyttingKontrollerTest {
         Person personGroentLoep = Personer.getPersonGroentLoep();
         Register.leggTilPerson(personGroentLoep);
         MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingGroentLoep(personGroentLoep);
-        utflyttingKontroller.utflytting(meldingOmUtflytting);
-
-        // todo: Add assert: OK
+        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting);
+        assertEquals(Action.CONTINUE, utflytting);
     }
 
     @Test
@@ -37,8 +38,9 @@ class UtflyttingKontrollerTest {
         Register.leggTilPerson(personBarn);
         MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingMedBarn(personBarn);
         utflyttingKontroller.utflytting(meldingOmUtflytting);
+        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting);
 
-        // todo: Add assert: IKKE OK
+        assertEquals(Action.CANCEL, utflytting);
     }
 
     @Test

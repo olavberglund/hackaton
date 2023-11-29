@@ -35,9 +35,9 @@ public class Main {
             add(new Rule(25, PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE, Action.CONTINUE));
         }};
 
-        RuleEngine ruleEngine = new RuleEngine(rules);
+//        RuleEngine ruleEngine = new RuleEngine(rules);
 
-        ruleEngine.evaluate(new MeldingOmUtflytting());
+//        ruleEngine.evaluate(new MeldingOmUtflytting());
 
     }
 }
