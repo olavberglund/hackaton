@@ -1,11 +1,14 @@
 package triatlon.fr;
 
+import static triatlon.fr.model.Register.hentPerson;
+
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import triatlon.fr.model.MeldingOmUtflytting;
+import triatlon.fr.model.Person;
 import triatlon.fr.util.Countries;
 
 public class Rule {
@@ -77,6 +80,7 @@ public class Rule {
             case PERSONEN_PLANLEGGER_A_OPPHOLDE_SEG_DELER_AV_AARET_I_NORGE -> harDagerINorge(meldingOmUtflytting);
             case PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK -> harMaksAntallDagerINorgeAvgangen(meldingOmUtflytting);
             case PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE -> !harDagerINorge(meldingOmUtflytting);
+            case PERSONEN_ER_UTFLYTTET_FRA_FOER -> harStatusUtflyttet(hentPerson(meldingOmUtflytting.getIdentifikator()));
             default ->
                 // Handle unsupported condition
                 false;
@@ -105,6 +109,10 @@ public class Rule {
 
     public boolean isEmptyOrNull(String condition) {
         return condition == null || condition.isEmpty();
+    }
+
+    public boolean harStatusUtflyttet(Person person) {
+    return person.getStatus() == Person.Status.UTFLYTTET;
     }
 
     @Override

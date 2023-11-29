@@ -23,58 +23,33 @@ class UtflyttingKontrollerTest {
 
     @Test
     void utflyttingGroentLoep() {
-
         Person personGroentLoep = Personer.getPersonGroentLoep();
         Register.leggTilPerson(personGroentLoep);
         MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingGroentLoep(personGroentLoep);
-        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting);
+        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting, personGroentLoep);
         assertEquals(Action.CONTINUE, utflytting);
     }
 
     @Test
-    void utflyttingBarn() {
-
-        Person personBarn = Personer.getPersonMeBarn();
-        Register.leggTilPerson(personBarn);
-        MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingMedBarn(personBarn);
-        utflyttingKontroller.utflytting(meldingOmUtflytting);
-        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting);
-
-        assertEquals(Action.CANCEL, utflytting);
-    }
-
-    @Test
-    void utflyttingVoksenMedBarn() {
-
-        Person personVoksenMedBarn = Personer.getPersonMeBarn();
-        Register.leggTilPerson(personVoksenMedBarn);
-        MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingMedBarn(personVoksenMedBarn);
-        utflyttingKontroller.utflytting(meldingOmUtflytting);
-
-        // todo: Add assert: IKKE OK
-    }
-
-    @Test
     void utflyttingHarEktefelle() {
-
         Person personHarEktefelle = Personer.getPersonMedEktefelle();
         Register.leggTilPerson(personHarEktefelle);
         Register.leggTilPerson(personHarEktefelle.getEktefelle());
         MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingMedEktefelle(personHarEktefelle);
-        utflyttingKontroller.utflytting(meldingOmUtflytting);
 
-        // todo: Add assert: IKKE OK
+        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting, personHarEktefelle);
+        assertEquals(Action.MANUAL, utflytting);
     }
 
     @Test
     void utflyttingAlleredeUtflyttet() {
-
         Person personUtenforNorge = Personer.getPersonUtenforNorge();
         Register.leggTilPerson(personUtenforNorge);
         MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingAlleredeUtflyttet(personUtenforNorge);
-        utflyttingKontroller.utflytting(meldingOmUtflytting);
+        utflyttingKontroller.utflytting(meldingOmUtflytting, personUtenforNorge);
 
-        // todo: Add assert: IKKE OK
+        Action utflytting = utflyttingKontroller.utflytting(meldingOmUtflytting, personUtenforNorge);
+        assertEquals(Action.CANCEL, utflytting);
     }
 
     @Test
@@ -84,7 +59,7 @@ class UtflyttingKontrollerTest {
         Register.leggTilPerson(personHarBarnOgEktefelleOgAlleredeUtflyttet);
         Register.leggTilPerson(personHarBarnOgEktefelleOgAlleredeUtflyttet.getEktefelle());
         MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingHarBarnOgEktefelleOgAlleredeUtflyttet(personHarBarnOgEktefelleOgAlleredeUtflyttet);
-        Action action = utflyttingKontroller.utflytting(meldingOmUtflytting);
+        Action action = utflyttingKontroller.utflytting(meldingOmUtflytting,personHarBarnOgEktefelleOgAlleredeUtflyttet);
 
         assertEquals(Action.CANCEL, action);
     }

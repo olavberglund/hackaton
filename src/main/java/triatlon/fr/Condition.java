@@ -12,7 +12,9 @@ public enum Condition {
     PERSONEN_HAR_INGEN_ARBEIDSMESSIG_TILKNYTNING_I_EN_NORSK_KOMMUNE("Personen har ingen arbeidsmessig tilknytning i en norsk kommune"),
     PERSONEN_PLANLEGGER_A_OPPHOLDE_SEG_DELER_AV_AARET_I_NORGE("Personen planlegger å oppholde seg deler av året i Norge"),
     PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK("Personen oppgir maks antall dager i strekk"),
-    PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE("Personen oppgir at hen ikke skal oppholde seg i Norge");
+    PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE("Personen oppgir at hen ikke skal oppholde seg i Norge"),
+    PERSONEN_ER_UTFLYTTET_FRA_FOER("Personen er utflyttet fra før");
+
     private final String condition;
 
     private Condition(String condition) {
