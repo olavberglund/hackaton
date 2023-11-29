@@ -27,6 +27,30 @@ class UtflyttingKontrollerTest {
         MeldingOmUtflytting meldingOmUtflytting1 = Meldinger.genererMeldingGroentLoep(personGroentLoep);
         utflyttingKontroller.utflytting(meldingOmUtflytting1);
 
-        // todo: Add assertions or verifications here
+        // todo: Add assert: OK
     }
+
+    @Test
+    void utflyttingBarn() {
+
+        Person personBarn = Personer.getPersonMedarn();
+        Register.leggTilPerson(personBarn);
+        MeldingOmUtflytting meldingOmUtflytting2 = Meldinger.genererMeldingMedarn(personBarn);
+        utflyttingKontroller.utflytting(meldingOmUtflytting2);
+
+        // todo: Add assert: IKKE OK
+    }
+
+    @Test
+    void utflyttingVoksenMedBarn() {
+
+        Person personVoksenMedBarn = Personer.getPersonMedarn();
+        Register.leggTilPerson(personVoksenMedBarn);
+        MeldingOmUtflytting meldingOmUtflytting3 = Meldinger.genererMeldingMedarn(personVoksenMedBarn);
+        utflyttingKontroller.utflytting(meldingOmUtflytting3);
+
+        // todo: Add assert: IKKE OK
+    }
+
+
 }
