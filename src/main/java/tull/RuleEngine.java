@@ -1,9 +1,10 @@
 package tull;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-
+import triatlon.fr.Fact;
 
 public class RuleEngine {
     private final Set<Rule> rules;
@@ -19,15 +20,15 @@ public class RuleEngine {
         while (newFactAdded) {
             newFactAdded = false;
 
-            for (Rule rule : rules) {
-                if (!rule.match(facts, conditionDescription)) {
-                    return rule.getDefaultValue();
-                }
-
-                if (facts.add(rule.getConclusion())) {
-                    newFactAdded = true;
-                }
-            }
+//            for (Rule rule : rules) {
+//                if (!rule.match(facts, conditionDescription)) {
+//                    return rule.getDefaultValue();
+//                }
+//
+//                if (facts.add(rule.getConclusion())) {
+//                    newFactAdded = true;
+//                }
+//            }
         }
 
         return true;

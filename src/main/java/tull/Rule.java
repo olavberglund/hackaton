@@ -17,8 +17,8 @@ public final class Rule {
         return this.condition;
     }
 
-    public boolean match() {
-        return this.condition.match();
-    }
+//    public boolean match() {
+//        return this.condition.match();
+//    }
 }
 

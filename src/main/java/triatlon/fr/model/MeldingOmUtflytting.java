@@ -79,7 +79,7 @@ public class MeldingOmUtflytting {
             return this;
         }
 
-        public MeldingOmUtflytting bygg() {
+        public MeldingOmUtflytting build() {
             return meldingOmUtflytting;
         }
     }

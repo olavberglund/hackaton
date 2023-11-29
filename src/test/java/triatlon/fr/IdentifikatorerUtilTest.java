@@ -10,7 +10,7 @@ import triatlon.fr.mockdata.IdentifikatorerUtil;
 class IdentifikatorerUtilTest {
 
     @Test
-    void genererFinskIdentifikatorSkalReturnereKorrektFormat() {
+    void genererIdentifikatorSkalReturnereKorrektFormat() {
         String identifikator = IdentifikatorerUtil.genererIdentifikator(LocalDate.of(1990, 5, 15));
         String forventetResultat = "150590";
         assertTrue(identifikator.matches("\\d{6}[A+-]\\d{3}[A-FHJ-NP-Z]"));
