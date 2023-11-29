@@ -8,13 +8,14 @@ import static triatlon.fr.Condition.PERSONEN_HAR_INGEN_ARBEIDSMESSIG_TILKNYTNING
 import static triatlon.fr.Condition.PERSONEN_HAR_INGEN_EKTEFELLE_ELLER_BARN_I_EN_NORSK_KOMMUNE;
 import static triatlon.fr.Condition.PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE;
 import static triatlon.fr.Condition.PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK;
-import static triatlon.fr.Condition.PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK_MANUAL;
 import static triatlon.fr.Condition.PERSONEN_PLANLEGGER_A_OPPHOLDE_SEG_DELER_AV_AARET_I_NORGE;
 import static triatlon.fr.Condition.TILFLYTNINGSLAND_ER_OPPGITT_OG_GYLDIG;
 import static triatlon.fr.Condition.TILFLYTNINGSLAND_IKKE_OPPGITT;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import triatlon.fr.model.MeldingOmUtflytting;
 
 public class Main {
 
@@ -30,7 +31,6 @@ public class Main {
         Rule rule19 = new Rule(19, PERSONEN_HAR_INGEN_ARBEIDSMESSIG_TILKNYTNING_I_EN_NORSK_KOMMUNE, Action.CONTINUE);
         Rule rule20 = new Rule(20, PERSONEN_PLANLEGGER_A_OPPHOLDE_SEG_DELER_AV_AARET_I_NORGE, Action.MANUAL);
         Rule rule23 = new Rule(23, PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK, Action.CONTINUE);
-        Rule rule24 = new Rule(24, PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK_MANUAL, Action.MANUAL);
         Rule rule25 = new Rule(25, PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE, Action.CONTINUE);
 
         List<Rule> rules = new ArrayList<Rule>();
@@ -45,18 +45,11 @@ public class Main {
         rules.add(rule19);
         rules.add(rule20);
         rules.add(rule23);
-        rules.add(rule24);
         rules.add(rule25);
 
         RuleEngine ruleEngine = new RuleEngine(rules);
-        Action action = ruleEngine.evaluate(String.valueOf(IDENTIFIKATOR_ER_OPPGITT_OG_GJENKJENNBAR), "123456789");
 
-        if (action != null) {
-//            System.out.println("Rule ID: " + action .getId());
-//            System.out.println("Condition: " + rule.getCondition());
-//            System.out.println("Action: " + rule.getAction());
-        } else {
-            System.out.println("No matching rule found");
-        }
+        ruleEngine.evaluate(new MeldingOmUtflytting());
+
     }
 }

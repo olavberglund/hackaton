@@ -15,7 +15,51 @@ public class MeldingOmUtflytting {
     private int maksAntallDagerINorgeAvgangen;
     private boolean arbeidsforholdINorge;
 
-    private MeldingOmUtflytting() { }
+    public MeldingOmUtflytting() { }
+
+    public String getIdentifikator() {
+        return identifikator;
+    }
+
+    public String getTilflytningsland() {
+        return tilflytningsland;
+    }
+
+    public LocalDate getTilflytningsdato() {
+        return tilflytningsdato;
+    }
+
+    public boolean isBoligIUtlandet() {
+        return boligIUtlandet;
+    }
+
+    public boolean isDokumentasjonForBoligIUtlandet() {
+        return dokumentasjonForBoligIUtlandet;
+    }
+
+    public boolean isEktefelleINorge() {
+        return ektefelleINorge;
+    }
+
+    public boolean isBarnINorge() {
+        return barnINorge;
+    }
+
+    public boolean isOppholdINorge() {
+        return oppholdINorge;
+    }
+
+    public int getAntallDagerINorgeTotalt() {
+        return antallDagerINorgeTotalt;
+    }
+
+    public int getMaksAntallDagerINorgeAvgangen() {
+        return maksAntallDagerINorgeAvgangen;
+    }
+
+    public boolean isArbeidsforholdINorge() {
+        return arbeidsforholdINorge;
+    }
 
     public static class Builder {
         private MeldingOmUtflytting meldingOmUtflytting;
@@ -82,50 +126,6 @@ public class MeldingOmUtflytting {
         public MeldingOmUtflytting build() {
             return meldingOmUtflytting;
         }
-    }
-
-    public String getIdentifikator() {
-        return identifikator;
-    }
-
-    public String getTilflytningsland() {
-        return tilflytningsland;
-    }
-
-    public LocalDate getTilflytningsdato() {
-        return tilflytningsdato;
-    }
-
-    public boolean isBoligIUtlandet() {
-        return boligIUtlandet;
-    }
-
-    public boolean isDokumentasjonForBoligIUtlandet() {
-        return dokumentasjonForBoligIUtlandet;
-    }
-
-    public boolean isEktefelleINorge() {
-        return ektefelleINorge;
-    }
-
-    public boolean isBarnINorge() {
-        return barnINorge;
-    }
-
-    public boolean isOppholdINorge() {
-        return oppholdINorge;
-    }
-
-    public int getAntallDagerINorgeTotalt() {
-        return antallDagerINorgeTotalt;
-    }
-
-    public int getMaksAntallDagerINorgeAvgangen() {
-        return maksAntallDagerINorgeAvgangen;
-    }
-
-    public boolean isArbeidsforholdINorge() {
-        return arbeidsforholdINorge;
     }
 }
 
