@@ -33,19 +33,19 @@ public class Main {
         Rule rule23 = new Rule(23, PERSONEN_OPPGIR_MAKS_ANTALL_DAGER_I_STREKK, Action.CONTINUE);
         Rule rule25 = new Rule(25, PERSONEN_OPPGIR_AT_HEN_IKKE_SKAL_OPPHOLDE_SEG_I_NORGE, Action.CONTINUE);
 
-        List<Rule> rules = new ArrayList<Rule>();
-
-        rules.add(rule2);
-        rules.add(rule6);
-        rules.add(rule7);
-        rules.add(rule10);
-        rules.add(rule15);
-        rules.add(rule17);
-        rules.add(rule18);
-        rules.add(rule19);
-        rules.add(rule20);
-        rules.add(rule23);
-        rules.add(rule25);
+        List<Rule> rules = new ArrayList<>() {{
+            add(rule2);
+            add(rule6);
+            add(rule7);
+            add(rule10);
+            add(rule15);
+            add(rule17);
+            add(rule18);
+            add(rule19);
+            add(rule20);
+            add(rule23);
+            add(rule25);
+        }};
 
         RuleEngine ruleEngine = new RuleEngine(rules);
 
