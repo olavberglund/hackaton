@@ -19,5 +19,19 @@ public class Meldinger {
                 .medArbeidsforholdINorge(false)
                 .build();
     }
+
+    public static MeldingOmUtflytting genererMeldingMedarn(Person personBarn) {
+        return new MeldingOmUtflytting.Builder()
+                .medIdentifikator(personBarn.getIdentifikator())
+                .medTilflytningsland("USA")
+                .medTilflytningsdato(LocalDate.now().minusDays(5))
+                .medBoligIUtlandet(true)
+                .medDokumentasjonForBoligIUtlandet(true)
+                .medEktefelleINorge(false)
+                .medBarnINorge(true)
+                .medOppholdINorge(false)
+                .medArbeidsforholdINorge(false)
+                .build();
+    }
 }
 
