@@ -59,7 +59,7 @@ public class Person {
             return this;
         }
 
-        public Person bygg() {
+        public Person build() {
             return person;
         }
     }

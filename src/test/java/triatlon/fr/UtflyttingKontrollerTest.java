@@ -76,4 +76,16 @@ class UtflyttingKontrollerTest {
 
         // todo: Add assert: IKKE OK
     }
+
+    @Test
+    void utflyttingHarBarnOgEktefelleOgAlleredeUtflyttet() {
+
+        Person personHarBarnOgEktefelleOgAlleredeUtflyttet = Personer.getPersonHarBarnOgEktefelleOgAlleredeUtflyttet();
+        Register.leggTilPerson(personHarBarnOgEktefelleOgAlleredeUtflyttet);
+        Register.leggTilPerson(personHarBarnOgEktefelleOgAlleredeUtflyttet.getEktefelle());
+        MeldingOmUtflytting meldingOmUtflytting = Meldinger.genererMeldingHarBarnOgEktefelleOgAlleredeUtflyttet(personHarBarnOgEktefelleOgAlleredeUtflyttet);
+        Action action = utflyttingKontroller.utflytting(meldingOmUtflytting);
+
+        assertEquals(Action.CANCEL, action);
+    }
 }

@@ -15,7 +15,7 @@ public class Personer {
                 .medAntallBarn(0)
                 .medEktefelle(null)
                 .medStatus(Person.Status.BOSATT)
-                .bygg();
+                .build();
     }
 
     public static Person getPersonMeBarn() {
@@ -28,7 +28,7 @@ public class Personer {
                 .medAntallBarn(1)
                 .medEktefelle(null)
                 .medStatus(Person.Status.BOSATT)
-                .bygg();
+                .build();
     }
 
     public static Person getPersonUtenforNorge() {
@@ -41,7 +41,7 @@ public class Personer {
                 .medAntallBarn(0)
                 .medEktefelle(null)
                 .medStatus(Person.Status.UTFLYTTET)
-                .bygg();
+                .build();
     }
 
     public static Person getPersonUnder18() {
@@ -54,7 +54,7 @@ public class Personer {
                 .medAntallBarn(0)
                 .medEktefelle(null)
                 .medStatus(Person.Status.BOSATT)
-                .bygg();
+                .build();
     }
 
     public static Person getPersonAkkurat18() {
@@ -66,7 +66,7 @@ public class Personer {
                 .medAntallBarn(0)
                 .medEktefelle(null)
                 .medStatus(Person.Status.BOSATT)
-                .bygg();
+                .build();
     }
 
     public static Person getPersonMedEktefelle() {
@@ -81,7 +81,7 @@ public class Personer {
                 .medAdresse(adresse)
                 .medAntallBarn(0)
                 .medStatus(Person.Status.BOSATT)
-                .bygg();
+                .build();
 
         Person ektefelle2 = new Person.Builder()
                 .medFodselsdato(foedselsdatoEktefelle2)
@@ -90,7 +90,7 @@ public class Personer {
                 .medAdresse(adresse)
                 .medAntallBarn(0)
                 .medStatus(Person.Status.BOSATT)
-                .bygg();
+                .build();
 
         ektefelle1.setEktefelle(ektefelle2);
         ektefelle2.setEktefelle(ektefelle1);
@@ -98,4 +98,35 @@ public class Personer {
         return ektefelle1;
     }
 
+    public static Person getPersonHarBarnOgEktefelleOgAlleredeUtflyttet() {
+        String adresse = AdresseUtil.genererByNummer();
+        LocalDate personMedEktefelleFoedselsdato = DatoUtil.genererFodselsdatoForVoksen();
+        LocalDate ektefelleFoedselsdato = DatoUtil.genererFodselsdatoForVoksen();
+
+        Person personMedEktefelle = new Person.Builder()
+                .medFodselsdato(personMedEktefelleFoedselsdato)
+                .medIdentifikator(IdentifikatorerUtil.genererIdentifikator(personMedEktefelleFoedselsdato))
+                .medNavn(NavnUtil.genererAdjektivSubstantiv())
+                .medAdresse(adresse)
+                .medAntallBarn(1)
+                .medStatus(Person.Status.UTFLYTTET)
+                .build();
+
+        Person ektefelle = new Person.Builder()
+                .medFodselsdato(ektefelleFoedselsdato)
+                .medIdentifikator(IdentifikatorerUtil.genererIdentifikator(ektefelleFoedselsdato))
+                .medNavn(NavnUtil.genererAdjektivSubstantiv())
+                .medAdresse(adresse)
+                .medAntallBarn(1)
+                .medStatus(Person.Status.BOSATT)
+                .build();
+
+        personMedEktefelle.setEktefelle(ektefelle);
+        ektefelle.setEktefelle(personMedEktefelle);
+
+        personMedEktefelle.setEktefelle(ektefelle);
+        ektefelle.setEktefelle(personMedEktefelle);
+
+        return personMedEktefelle;
+    }
 }

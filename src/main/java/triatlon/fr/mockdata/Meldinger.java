@@ -61,5 +61,19 @@ public class Meldinger {
                 .medArbeidsforholdINorge(false)
                 .build();
     }
+
+    public static MeldingOmUtflytting genererMeldingHarBarnOgEktefelleOgAlleredeUtflyttet(Person personHarBarnOgEktefelleOgAlleredeUtflyttet) {
+        return new MeldingOmUtflytting.Builder()
+                .medIdentifikator(personHarBarnOgEktefelleOgAlleredeUtflyttet.getIdentifikator())
+                .medTilflytningsland("USA")
+                .medTilflytningsdato(LocalDate.now().minusDays(5))
+                .medBoligIUtlandet(true)
+                .medDokumentasjonForBoligIUtlandet(true)
+                .medEktefelleINorge(true)
+                .medBarnINorge(true)
+                .medOppholdINorge(false)
+                .medArbeidsforholdINorge(false)
+                .build();
+    }
 }
 
